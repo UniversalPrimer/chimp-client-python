@@ -1,0 +1,18 @@
+
+This is a python client for the Chimp protocol which is built on top of APE
+
+Right now it only does:
+
+      APE handshaking
+      APE channel join
+      APE send and receive
+
+Not Chimp-specific stuff is implemented yet.
+
+
+ToDo:
+
+  Use non-blocking IO to support > 4k receives
+  Detecting APE errors and conversion to Python exceptions
+  Ensure that ID is really unique (retry on APE nick collision)
+
