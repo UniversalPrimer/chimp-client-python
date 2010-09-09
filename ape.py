@@ -165,7 +165,7 @@ class APEClient:
 def cb(obj,var):
     print var
 
-if __name__ == "main":
+if __name__ == "__main__":
     c = APEClient('ape.gui.grafiki.org', 6969, "foo", callback=cb)
     c.connect()
     c.send("HELLO")
