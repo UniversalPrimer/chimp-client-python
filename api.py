@@ -10,9 +10,7 @@ import socket
 
 class APEClient:
 
-
     def __init__(self, host, port=80):
-
         self.sessid = None
         self.pipeid = None
         self.host = host
@@ -26,11 +24,8 @@ class APEClient:
         
 
     def identifier(self, length):
-
         nums = '0123456789'
-
         return ''.join(random.choice(string.letters + nums) for i in xrange(length))
-
 
     def connect(self):
         self.con = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -38,7 +33,6 @@ class APEClient:
 
 
     def send_cmd(self, cmd, params):
-
         self.connect()
 
         data = [{'cmd': cmd.upper(),
@@ -47,8 +41,6 @@ class APEClient:
 
         if self.sessid:
             data[0]['sessid'] = self.sessid
-
-
 
         self.chl += 1
 
@@ -63,7 +55,7 @@ class APEClient:
         self.con.send("Content-Length: "+str(len(data_json))+"\r\n")
         self.con.send("\r\n")
 
-        self.con.send(data_json+"\r\n")
+        self.con.send(data_json+"\n\n")
 
 
     def recv_raw(self):
